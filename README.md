@@ -3,7 +3,7 @@
 
 This system enables users to withdraw money from cryptocurrency to fiat currency, transferring funds to different bank accounts in various countries.
 
-![](./Crypto-to-Fiat%20Withdrawal%20System.drawio.png)
+![](./Crypto-to-Fiat%20Withdrawal%20System-1.jpg)
 **System Design:**
 
 The system will utilize a microservices architecture for scalability, resilience, and maintainability. Here are the key components:
@@ -73,9 +73,11 @@ This system design provides a foundation for a secure, efficient, and user-frien
 
 
 4. **Database:**
-   A relational database management system (RDBMS) like PostgreSQL is a suitable choice for this system due to its: 
-   - Scalability: Ability to handle large transaction volumes and user data growth.
-   - Data Integrity: Features that ensure data accuracy and consistency
+   A master-slave replication architecture with a relational database management system (RDBMS) like PostgreSQL is a suitable choice for this system due to its:
+
+  - Scalability: Master-slave replication allows for horizontal scalability by distributing read-heavy workloads across multiple slave nodes. As transaction volumes and user data grow, additional slave nodes can be added to handle increased read traffic without impacting the performance of the master node.
+
+  - Data Integrity: With master-slave replication, data integrity is maintained as all write operations are performed on the master node first and then replicated to the slave nodes. This ensures that data remains consistent across the entire database cluster, reducing the risk of data discrepancies or corruption.
 
 **Transfer Steps (Key Point 1):**
 
